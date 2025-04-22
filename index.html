@@ -1,7 +1,12 @@
 
-<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+<!-- USED -->
+
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.6.0/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 <!-- include ar.js for A-Frame -->
-<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<!-- <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+<!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> --> -->
 
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
@@ -15,20 +20,20 @@
         </a-assets>
         
         <!-- Marker -->
-        <a-marker type='pattern' url="AR/logo/logo.patt">
+        <a-marker type='pattern' url="asset/AR/logo/logo.patt">
             <!-- Entity -->
             <a-entity gltf-model="#apel"></a-entity>
         </a-marker>
-        <a-marker type='pattern' url="AR/logomark/logomark.patt">
+        <a-marker type='pattern' url="asset/AR/logomark/logomark.patt">
             <a-entity gltf-model="#kopi1"></a-entity>
         </a-marker>
-        <a-marker type='pattern' url="AR/menara/menara.patt">
+        <a-marker type='pattern' url="asset/AR/menara/menara.patt">
             <a-entity gltf-model="#kopi2"></a-entity>
         </a-marker>
-        <a-marker type='pattern' url="AR/syiria/syriria.patt">
+        <a-marker type='pattern' url="asset/AR/syiria/syriria.patt">
             <a-entity gltf-model="#botol"></a-entity>
         </a-marker>
-
+        
         <!-- Camera -->
         <a-entity camera></a-entity>
       </a-scene>  
