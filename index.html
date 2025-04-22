@@ -1,18 +1,78 @@
-
-<!-- USED -->
-
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.6.0/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-<!-- include ar.js for A-Frame -->
-<!-- <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-<!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> --> -->
 
-<body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs>
-        
-        <!-- Asset -->
-        <a-assets>
+<style>
+  .arjs-loader {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background-color: aqua;
+  }
+  .arjs-loader:before,
+  .arjs-loader:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    animation: pulsOut 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.75));
+  }
+  .arjs-loader:before {
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: inset 0 0 0 1rem #fff;
+    animation-name: pulsIn;
+  }
+  .arjs-loader:after {
+    width: calc(100% - 2rem);
+    padding-bottom: calc(100% - 2rem);
+    box-shadow: 0 0 0 0 #fff;
+  }
+
+  @keyframes pulsIn {
+    0% {
+      box-shadow: inset 0 0 0 1rem #fff;
+      opacity: 1;
+    }
+    50%, 100% {
+      box-shadow: inset 0 0 0 0 #fff;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulsOut {
+    0%, 50% {
+      box-shadow: 0 0 0 0 #fff;
+      opacity: 0;
+    }
+    100% {
+      box-shadow: 0 0 0 1rem #fff;
+      opacity: 1;
+    }
+  }
+      
+      
+</style>
+
+<body style="margin: 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <!--One Container-->
+  <div class="arjs-loader"></div>
+  <a-scene
+    loading-screen="dotsColor: red; backgroundColor: black"
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true; precision: medium;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
+    gesture-detector
+    id="scene"
+  >
+    <a-assets>
             <a-asset-item id="apel" src="asset/3D/apple_low-poly_free.glb"></a-asset-item>
             <a-asset-item id="kopi1" src="asset/3D/coffee_cup.glb"></a-asset-item>
             <a-asset-item id="kopi2" src="asset/3D/coffee_cups.glb"></a-asset-item>
@@ -33,14 +93,12 @@
         <a-marker type='pattern' url="asset/AR/syiria/syriria.patt">
             <a-entity gltf-model="#botol"></a-entity>
         </a-marker>
-        
-        <!-- Camera -->
-        <a-entity camera></a-entity>
-      </a-scene>  
-</body>
-</html>
 
-
-<body >
-  
+    <a-entity camera></a-entity>
+  </a-scene>
 </body>
+<!-- USED -->
+<!-- include ar.js for A-Frame -->
+<!-- <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+<!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> --> -->
+
