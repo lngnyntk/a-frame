@@ -4,8 +4,6 @@
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
@@ -16,7 +14,6 @@
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             id="scene"
             embedded
-            gesture-detector
         >
             <a-assets>
                 <a-asset-item id="apel" src="asset/3D/apple_low-poly_free.glb"></a-asset-item>
@@ -26,14 +23,13 @@
             </a-assets>
 
             <a-marker
-                id="apel"
+                class="marker"
                 type="pattern"
                 preset="custom"
                 url="asset/AR/logo/logo.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
             >
                 <a-entity
                     id="model-apel"
@@ -41,18 +37,17 @@
                     animation-mixer="loop: repeat"
                     gltf-model="#apel"
                     class="clickable"
-                    gesture-handler
                 ></a-entity>
             </a-marker>
+
             <a-marker
-                id="kopi1"
+                class="marker"
                 type="pattern"
                 preset="custom"
                 url="asset/AR/logomark/logomark.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerB"
             >
                 <a-entity
                     id="model-kopi1"
@@ -60,18 +55,17 @@
                     animation-mixer="loop: repeat"
                     gltf-model="#kopi1"
                     class="clickable"
-                    gesture-handler
                 ></a-entity>
             </a-marker>
+
             <a-marker
-                id="menara"
+                class="marker"
                 type="pattern"
                 preset="custom"
                 url="asset/AR/menara/menara.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerC"
             >
                 <a-entity
                     id="model-menara"
@@ -79,18 +73,17 @@
                     animation-mixer="loop: repeat"
                     gltf-model="#kopi2"
                     class="clickable"
-                    gesture-handler
                 ></a-entity>
             </a-marker>
+
             <a-marker
-                id="syiria"
+                class="marker"
                 type="pattern"
                 preset="custom"
                 url="asset/AR/syiria/syiria.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerD"
             >
                 <a-entity
                     id="model-botol"
@@ -98,7 +91,6 @@
                     animation-mixer="loop: repeat"
                     gltf-model="#botol"
                     class="clickable"
-                    gesture-handler
                 ></a-entity>
             </a-marker>
 
