@@ -1,28 +1,108 @@
-<!doctype HTML>
+<!doctype html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
-    <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-        
-        <!-- Asset -->
-        <a-assets>
-            <a-asset-item id="botol" src="https://raw.githubusercontent.com/lngnyntk/a-frame/main/asset/3D/water_bottle.glb"></a-asset-item>
-        </a-assets>
-        
-        <!-- Marker -->
-        <a-marker type='pattern' preset="custom" url="https://raw.githubusercontent.com/lngnyntk/a-frame/main/asset/AR/syiria/syiria.patt">
-            <a-entity gltf-model="#botol" scale="2">></a-entity>
-        </a-marker>
 
-        <!-- Camera -->
-        <a-entity camera></a-entity>
-      </a-scene>  
-</body>
+    <body style="margin: 0; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <a-asset-item id="apel" src="asset/3D/apple_low-poly_free.glb"></a-asset-item>
+                <a-asset-item id="kopi1" src="asset/3D/coffee_cup.glb"></a-asset-item>
+                <a-asset-item id="kopi2" src="asset/3D/coffee_cups.glb"></a-asset-item>
+                <a-asset-item id="botol" src="asset/3D/water_bottle.glb"></a-asset-item>
+            </a-assets>
+
+            <a-marker
+                id="apel"
+                type="pattern"
+                preset="custom"
+                url="asset/AR/logo/logo.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="model-apel"
+                    scale="0.0032151371360502807 0.0032151371360502807 0.0032151371360502807"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#apel"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="kopi1"
+                type="pattern"
+                preset="custom"
+                url="asset/AR/logomark/logomark.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+            >
+                <a-entity
+                    id="model-kopi1"
+                    scale="0.0032151371360502807 0.0032151371360502807 0.0032151371360502807"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#kopi1"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="menara"
+                type="pattern"
+                preset="custom"
+                url="asset/AR/menara/menara.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-entity
+                    id="model-menara"
+                    scale="0.0032151371360502807 0.0032151371360502807 0.0032151371360502807"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#kopi2"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="syiria"
+                type="pattern"
+                preset="custom"
+                url="asset/AR/syiria/syiria.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerD"
+            >
+                <a-entity
+                    id="model-botol"
+                    scale="0.0032151371360502807 0.0032151371360502807 0.0032151371360502807"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#botol"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
 </html>
-
